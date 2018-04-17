@@ -1,0 +1,70 @@
+$ya-color: #0075be;
+$ya-color-dark: #0275d8;
+$xs-size: 1px;
+$sm-size: 768px;
+$md-size: 992px;
+$lg-size: 1200px;
+$screen-devices: (xs: $xs-size, sm:$sm-size, md:$md-size, lg:$lg-size);
+$main-color2: $ya-color-dark; //rgb(194, 237, 233);
+
+:host {
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  @media (min-width: #{768px + 1px}) {
+    flex-direction: row;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+  }
+  @media (max-width: #{768px}) {
+    flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+  }
+
+  height: 100vh;
+  > .nav-bar {
+
+    @media (min-width: #{768px + 1px}) {
+      width: 225px;
+      left: 0;
+      height: 100%;
+      overflow: auto;
+    }
+
+    @media (max-width: #{768px}) {
+      width: 100%;
+      height: 4rem;
+      line-height: 4rem;
+    }
+
+    background-color: $main-color2;
+  }
+
+  > .main {
+    flex: 1;
+    -ms-flex: 1;
+    -webkit-flex: 1;
+    overflow-y: auto;
+    //font-family: Kanit;
+  }
+
+  /deep/ .nav-bar::-webkit-scrollbar-track, .main::-webkit-scrollbar-track {
+    background-color: white;
+  }
+
+  /deep/ .nav-bar::-webkit-scrollbar, .main::-webkit-scrollbar {
+    color: #f0f0f0;
+    width: 6px;
+    background-color: #f0f0f0;
+  }
+
+  /deep/ .nav-bar::-webkit-scrollbar-thumb, .main::-webkit-scrollbar-thumb {
+    background-color: #f0f0f0;
+  }
+
+  /deep/ .nav-bar::-webkit-scrollbar-thumb:hover, .main::-webkit-scrollbar-thumb:hover {
+    background-color: navy;
+    opacity: 0.9;
+  }
+}

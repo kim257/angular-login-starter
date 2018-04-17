@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="content">
+    <div class="login center-block">
+      <div class="text-center m-b-20 m-t-10">
+        <!--<img src="../../../assets/logo/logo01.png" width="160" class="img-fluid">-->
+      </div>
+      <form class="login-form" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+          <label for="username">เบอร์โทรศัพท์</label>
+          <input id="username" type="text" class="form-control"
+                 name="username" [(ngModel)]="model.username" #username="ngModel" required
+                 placeholder="Username"
+          />
+          <div *ngIf="f.submitted && !username.valid" class="alert alert-danger m-t-5">
+            กรุณากรอกเบอร์โทรศัพท์
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+          <label for="password">รหัสผ่าน</label>
+          <input id="password" type="password" class="form-control"
+                 name="password" [(ngModel)]="model.password" #password="ngModel" required
+                 placeholder="Password"
+          />
+          <div *ngIf="f.submitted && !password.valid" class="alert alert-danger m-t-5">กรุณากรอกรหัสผ่าน</div>
+        </div>
+        <button class="btn btn-primary btn-lg btn-block">
+          ลงชื่อเข้าใช้
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="content">
+    <p class="copyright-msg">
+      Copyright (C) 2018
+    </p>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
